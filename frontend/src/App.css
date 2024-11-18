@@ -1,0 +1,102 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f7fa; /* Soft background for contrast */
+}
+
+.App {
+  text-align: center;
+  max-width: 1000px;
+  margin: 20px auto;
+}
+
+.header {
+  background-color: #2196F3; /* Blue header */
+  color: white;
+  padding: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+.task-form {
+  margin: 20px 0;
+}
+
+.task-form input,
+.task-form textarea {
+  width: calc(100% - 20px);
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.task-form button {
+  background-color: #4CAF50; /* Green for add button */
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.task-form button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.task-list {
+  margin-top: 20px;
+}
+
+.task-card {
+  background-color: #fff;
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.task-actions button {
+  margin: 0 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.task-actions button:hover {
+  opacity: 0.9;
+}
+
+.task-actions .edit-btn {
+  background-color: #ffa500; /* Orange */
+  color: white;
+}
+
+.task-actions .delete-btn {
+  background-color: #f44336; /* Red */
+  color: white;
+}
+

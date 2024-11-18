@@ -1,0 +1,271 @@
+/* General Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #f0f8ff, #ffffff); /* Light blue gradient */
+    color: #333;
+    box-sizing: border-box;
+}
+
+.App {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Add Task Form Container */
+.input-field {
+    max-width: 600px; /* Limit the form width */
+    margin: 20px auto; /* Center the form with some vertical margin */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Add Task Form Container */
+.add-task-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px; /* Limit the form width */
+    margin: 20px auto; /* Center the form horizontally */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 100vh; /* Make sure the form container takes up the full height of the viewport */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the form vertically and horizontally */
+  }
+  
+  /* Input and Textarea Styling */
+  .add-task-form input,
+  .add-task-form textarea {
+    width: 80%; /* Set the width of input fields to 80% */
+    margin: 10px auto; /* Center the input fields horizontally */
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    display: block; /* Ensure they are block elements */
+    box-sizing: border-box; /* Prevent padding from causing overflow */
+  }
+  
+  /* Button Styling */
+  .add-task-form button {
+    max-width: 500px; /* Ensure the button isn't too wide */
+  padding: 12px;
+    width: 80%; /* Same width as the inputs */
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px; /* Add some space between button and inputs */
+    display: block;
+    margin-left: auto; /* Center the button */
+    margin-right: auto;
+  }
+  
+  .add-task-form button:hover {
+    background-color: #45a049;
+  }
+
+  
+/* Header Styling */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #007b83;
+    text-transform: uppercase;
+}
+
+/* General Heading Styles */
+h1, h2 {
+    text-align: center;
+    margin: 20px 0;
+    color: #333; /* Text color */
+    font-weight: bold;
+}
+
+/* Specific Heading Customization */
+h1 {
+    font-size: 2.5rem; /* Larger font size for main heading */
+    color: #007b83; /* Match the primary color theme */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2); /* Slight text shadow for depth */
+}
+
+h2 {
+    font-size: 2rem; /* Slightly smaller for section headings */
+    color: #ff9800; /* Accent color for section headings */
+}
+
+
+/* Input and Button Styles */
+input {
+    padding: 10px;
+    margin: 10px 5px;
+    width: calc(70% - 20px);
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+button {
+    padding: 12px 25px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+/* Button Colors */
+/* Add Task Button Styling */
+button.add-btn {
+    background-color: #007b83; /* Primary color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease; /* Smooth transition for hover */
+}
+
+button.add-btn:hover {
+    background-color: #005f63; /* Darker shade for hover */
+    transform: scale(1.05); /* Slightly enlarges the button on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow effect */
+}
+
+
+button.edit-btn {
+    background-color: #FF9800;
+    color: white;
+}
+
+button.edit-btn:hover {
+    background-color: #e68900;
+    transform: scale(1.05);
+}
+
+button.delete-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+button.delete-btn:hover {
+    background-color: #d32f2f;
+    transform: scale(1.05);
+}
+
+/* Task List Styling */
+.task-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.task {
+    background-color: #e3f6f5;
+    padding: 20px;
+    border-radius: 10px;
+    width: 280px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.task:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.task h3 {
+    margin: 0 0 10px;
+    color: #007b83;
+    font-size: 1.3rem;
+}
+
+.task p {
+    margin: 0 0 10px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Edit Task Form */
+/* Initially hidden, will show when editTask.id is set */
+.edit-task {
+     
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .edit-task input,
+  .edit-task textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .edit-task button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .edit-task button:hover {
+    background-color: #45a049;
+  }
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .App {
+        padding: 15px;
+    }
+
+    .task {
+        width: 100%;
+    }
+
+    input {
+        width: calc(100% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 1.8rem;
+    }
+
+    button {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+
+    input {
+        font-size: 0.9rem;
+    }
+}
