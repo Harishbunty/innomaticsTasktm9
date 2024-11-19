@@ -1,9 +1,9 @@
-const API_URL = "http://localhost:3000/todos";
+const API_URL = "https://taskmanager-dx7i.onrender.com/";
 
 // Fetch tasks from the backend
 export const fetchTasks = async () => {
     try {
-      const response = await fetch('http://localhost:3000/todos');
+      const response = await fetch('https://taskmanager-dx7i.onrender.com/todos');
       if (!response.ok) {
         throw new Error('Failed to fetch tasks');
       }
@@ -18,7 +18,7 @@ export const fetchTasks = async () => {
 // Add a new task to the backend
 export const addTask = async (task) => {
     try {
-      const response = await fetch('http://localhost:3000/todos', {
+      const response = await fetch('https://taskmanager-dx7i.onrender.com/todos', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
