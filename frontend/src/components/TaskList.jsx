@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { deleteTask, updateTask } from '../api';
 import '../styles.css';
 
-function TaskList({ tasks, fetchTasks }) {
+function TaskList({ tasks, fetchTasks, setTasks }) {
   const [editTask, setEditTask] = useState({ id: '', title: '', description: '' });
 
   const handleDelete = async (id) => {
     try {
       await deleteTask(id);
-      fetchTasks(); // Refresh tasks after deletion
+      // Update the tasks state immediately after deletion
+      setTasks((prevTasks) => prevTasks.filter((task) => task._id !== id));
     } catch (error) {
       console.error('Error deleting task:', error);
     }
@@ -25,8 +26,13 @@ function TaskList({ tasks, fetchTasks }) {
     }
 
     try {
-      await updateTask(editTask.id, editTask);
-      fetchTasks(); // Refresh tasks after update
+      const updatedTask = await updateTask(editTask.id, editTask);
+      // Update the tasks state immediately after editing
+      setTasks((prevTasks) =>
+        prevTasks.map((task) =>
+          task._id === updatedTask._id ? updatedTask : task
+        )
+      );
       setEditTask({ id: '', title: '', description: '' });
     } catch (error) {
       console.error('Error updating task:', error);
@@ -76,3 +82,4 @@ function TaskList({ tasks, fetchTasks }) {
 }
 
 export default TaskList;
+ 

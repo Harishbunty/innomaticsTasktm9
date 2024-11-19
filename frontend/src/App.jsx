@@ -25,7 +25,7 @@ const App = () => {
     <div>
       <h1>Task Manager</h1>
       <TaskForm fetchTasks={fetchAllTasks} />  {/* Pass fetchTasks to the TaskForm component */}
-      <TaskList tasks={tasks} fetchTasks={fetchAllTasks} />  {/* Render TaskList */}
+      <TaskList tasks={tasks} setTasks={setTasks} fetchTasks={fetchAllTasks} />  {/* Render TaskList */}
     </div>
   );
 };
