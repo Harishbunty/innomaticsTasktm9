@@ -1,46 +1,38 @@
-import React, { useState, useEffect } from 'react'; 
-import { fetchTasks, deleteTask, updateTask } from '../api'; // Ensure these API functions are correct
+import React, { useState } from 'react';
+import { deleteTask, updateTask } from '../api';
 import '../styles.css';
 
-function TaskList() {
-  const [tasks, setTasks] = useState([]);
+function TaskList({ tasks, fetchTasks }) {
   const [editTask, setEditTask] = useState({ id: '', title: '', description: '' });
 
-  // Fetch tasks from the backend
-  useEffect(() => {
-    async function loadTasks() {
-      const tasksFromAPI = await fetchTasks();
-      console.log("tasksFromAPI", tasksFromAPI);
-      setTasks(tasksFromAPI);
-    }
-    loadTasks();
-  }, []);
-
-  // Delete task function
   const handleDelete = async (id) => {
-    await deleteTask(id); // Call delete API
-    setTasks(tasks.filter(task => task._id !== id)); // Update state after deletion
+    try {
+      await deleteTask(id);
+      fetchTasks(); // Refresh tasks after deletion
+    } catch (error) {
+      console.error('Error deleting task:', error);
+    }
   };
 
-  // Edit task function
   const handleEdit = (task) => {
-    console.log("Editing task:", task);  // Check if this is logged in the console
     setEditTask({ id: task._id, title: task.title, description: task.description });
   };
 
-  // Handle task update
   const handleUpdate = async () => {
     if (!editTask.title || !editTask.description) {
-      alert("Please fill in the title and description.");
+      alert('Please fill in the title and description.');
       return;
     }
-    
-    const updatedTask = await updateTask(editTask.id, editTask); // Call update API
-    setTasks(tasks.map(task => task._id === updatedTask._id ? updatedTask : task)); // Update task in the list
-    setEditTask({ id: '', title: '', description: '' }); // Reset edit form
+
+    try {
+      await updateTask(editTask.id, editTask);
+      fetchTasks(); // Refresh tasks after update
+      setEditTask({ id: '', title: '', description: '' });
+    } catch (error) {
+      console.error('Error updating task:', error);
+    }
   };
 
-  // Handle change in task form
   const handleChange = (e) => {
     const { name, value } = e.target;
     setEditTask((prev) => ({ ...prev, [name]: value }));
@@ -60,7 +52,6 @@ function TaskList() {
         ))}
       </div>
 
-      {/* Edit Task Form */}
       {editTask.id && (
         <div className="edit-task">
           <h3>Edit Task</h3>
