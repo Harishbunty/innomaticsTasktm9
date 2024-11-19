@@ -12,6 +12,7 @@ function TaskList({ tasks, fetchTasks, setTasks }) {
       setTasks((prevTasks) => prevTasks.filter((task) => task._id !== id));
     } catch (error) {
       console.error('Error deleting task:', error);
+      alert('Failed to delete task. Please try again.');
     }
   };
 
@@ -36,6 +37,7 @@ function TaskList({ tasks, fetchTasks, setTasks }) {
       setEditTask({ id: '', title: '', description: '' });
     } catch (error) {
       console.error('Error updating task:', error);
+      alert('Failed to update task. Please try again.');
     }
   };
 

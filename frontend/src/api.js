@@ -37,23 +37,28 @@ export const addTask = async (task) => {
     }
   };
   
-// Update an existing task
-export const updateTask = async (id, updatedTask) => {
-  const response = await fetch(`${API_URL}/${id}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(updatedTask),
+// deleteTask function
+export const deleteTask = async (id) => {
+  const response = await fetch(`https://taskmanager-dx7i.onrender.com/todos/${id}`, {
+    method: 'DELETE',
   });
-  const data = await response.json();
-  return data;
+  if (!response.ok) {
+    throw new Error('Failed to delete the task.');
+  }
 };
 
-// Delete a task from the backend
-export const deleteTask = async (id) => {
-  const response = await fetch(`${API_URL}/${id}`, {
-    method: "DELETE",
+// updateTask function
+export const updateTask = async (id, task) => {
+  const response = await fetch(`https://taskmanager-dx7i.onrender.com/todos/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(task),
   });
-  return response.ok;
+  if (!response.ok) {
+    throw new Error('Failed to update the task.');
+  }
+  const updatedTask = await response.json();
+  return updatedTask;
 };
